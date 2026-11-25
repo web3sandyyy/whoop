@@ -1,0 +1,76 @@
+:root {
+  --bg: #fafaf9;
+  --fg: #1c1917;
+  --muted: #78716c;
+  --line: #e7e5e4;
+  --card: #ffffff;
+  --accent: #111111;
+  --accent-fg: #ffffff;
+  --ok: #15803d;
+  --err: #b91c1c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0a09;
+    --fg: #f5f5f4;
+    --muted: #a8a29e;
+    --line: #292524;
+    --card: #1c1917;
+    --accent: #f5f5f4;
+    --accent-fg: #0c0a09;
+    --ok: #4ade80;
+    --err: #f87171;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+main {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 56px 16px 80px;
+}
+
+h1 { font-size: 28px; margin: 0 0 8px; letter-spacing: -0.02em; }
+.lede { color: var(--muted); margin: 0 0 32px; }
+
+.note { padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; }
+.note.error { color: var(--err); border-color: currentColor; }
+
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.steps li {
+  display: flex; gap: 14px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px;
+}
+.steps p { margin: 6px 0 0; color: var(--muted); }
+.num {
+  flex: none; width: 28px; height: 28px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 14px; font-weight: 600;
+  border: 1px solid var(--line);
+}
+.done .num { background: var(--ok); border-color: var(--ok); color: var(--bg); }
+
+.btn {
+  display: inline-block; margin-top: 10px; padding: 10px 16px; border-radius: 10px;
+  background: var(--accent); color: var(--accent-fg); text-decoration: none; font-weight: 600;
+}
+.btn.disabled { opacity: 0.35; pointer-events: none; }
+.hint { font-size: 13px; }
+
+.what { margin-top: 28px; }
+.what ul { padding-left: 18px; margin: 8px 0; }
+
+.disconnect { margin-top: 40px; }
+.disconnect button {
+  background: none; border: 0; padding: 0; color: var(--muted);
+  font: inherit; font-size: 14px; text-decoration: underline; cursor: pointer;
+}
+.disconnect button:hover { color: var(--err); }
